@@ -1,0 +1,12 @@
+data\model\singlevehicle\SingleVehicleTravelTimePayload.class
+data\util\PacketGenerator.class
+data\model\totalvehicles\TotalVehiclesTravelTimePayload.class
+data\model\PacketDeserializer.class
+data\model\SyntheticMessage.class
+data\model\CameraPayload.class
+data\model\CompleteMessagge.class
+data\model\singlevehicle\SingleVehicleMeanSpeedPayload.class
+data\model\totalvehicles\VehiclesNumberPayload.class
+data\model\Packet.class
+data\model\Payload.class
+data\model\totalvehicles\TotalVehiclesMeanSpeedPayload.class
