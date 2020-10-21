@@ -3,8 +3,9 @@ package data.util;
 import com.google.gson.Gson;
 import data.model.Packet;
 import data.model.Payload;
-import data.model.singlevehicle.SingleVehicleTravelTimePayload;
-import data.model.totalvehicles.TotalVehiclesTravelTimePayload;
+import data.model.single.SingleVehicleTravelTimePayload;
+import data.model.aggregate.AggregateVehiclesTravelTimePayload;
+import data.model.total.TotalVehiclesTravelTimePayload;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -26,8 +27,19 @@ public class PacketGenerator {
     public static String totalVehiclesTravelTimePayload(long linkId, double travelTime, int numVehicles,
                                                         LocalDateTime startingDate, LocalDateTime finalDate) {
         TotalVehiclesTravelTimePayload payload = new TotalVehiclesTravelTimePayload(
-                "TotalVehiclesTravelTimePayload",
+                "AggregateVehiclesTravelTimePayload",
                 travelTime, numVehicles, startingDate, finalDate);
+        ArrayList<Payload> list= new ArrayList<>();
+        list.add(payload);
+        Packet p = new Packet(linkId, list);
+        return new Gson().toJson(p);
+    }
+
+    public static String aggTotalVehiclesTravelTimePayload(long linkId, double avgTravelTime, double sdTravelTime, int numVehicles,
+                                                        LocalDateTime startingDate, LocalDateTime finalDate) {
+        AggregateVehiclesTravelTimePayload payload = new AggregateVehiclesTravelTimePayload(
+                "AggVehiclesTravelTimePayload",
+                avgTravelTime, sdTravelTime, numVehicles, startingDate, finalDate);
         ArrayList<Payload> list= new ArrayList<>();
         list.add(payload);
         Packet p = new Packet(linkId, list);

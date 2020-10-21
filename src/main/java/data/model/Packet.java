@@ -3,11 +3,12 @@ package data.model;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializer;
-import data.model.singlevehicle.SingleVehicleMeanSpeedPayload;
-import data.model.singlevehicle.SingleVehicleTravelTimePayload;
-import data.model.totalvehicles.TotalVehiclesMeanSpeedPayload;
-import data.model.totalvehicles.TotalVehiclesTravelTimePayload;
-import data.model.totalvehicles.VehiclesNumberPayload;
+import data.model.single.SingleVehicleMeanSpeedPayload;
+import data.model.single.SingleVehicleTravelTimePayload;
+import data.model.aggregate.AggregateVehiclesTravelTimePayload;
+import data.model.total.TotalVehiclesMeanSpeedPayload;
+import data.model.total.TotalVehiclesTravelTimePayload;
+import data.model.total.VehiclesNumberPayload;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -26,6 +27,7 @@ public class Packet implements Serializable {
         payloadsMap.put("SingleVehicleTravelTimePayload", SingleVehicleTravelTimePayload.class);
         payloadsMap.put("TotalVehiclesMeanSpeedPayload", TotalVehiclesMeanSpeedPayload.class);
         payloadsMap.put("TotalVehiclesTravelTimePayload", TotalVehiclesTravelTimePayload.class);
+        payloadsMap.put("AggregateVehiclesTravelTimePayload", AggregateVehiclesTravelTimePayload.class);
     }
 
     protected long linkId;

@@ -1,4 +1,4 @@
-package data.model.singlevehicle;
+package data.model.single;
 
 import com.google.gson.Gson;
 import data.model.Payload;

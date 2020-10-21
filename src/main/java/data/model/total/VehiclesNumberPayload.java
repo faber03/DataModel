@@ -1,4 +1,4 @@
-package data.model.totalvehicles;
+package data.model.total;
 
 import com.google.gson.Gson;
 import data.model.Payload;

@@ -1,31 +1,31 @@
-package data.model.totalvehicles;
+package data.model.total;
 
 import com.google.gson.Gson;
 import data.model.Payload;
 
 import java.time.LocalDateTime;
 
-public class TotalVehiclesTravelTimePayload extends Payload {
 
-    private double avgTravelTime;
-    private  int numVehicles;
+public class TotalVehiclesMeanSpeedPayload extends Payload {
+    private double meanSpeed;
+    private int numVehicles;
     private LocalDateTime startTime, endTime;
 
-    public TotalVehiclesTravelTimePayload(String payloadId, double avgTravelTime, int numVehicles, LocalDateTime startTime,
-                                          LocalDateTime endTime){
+    public TotalVehiclesMeanSpeedPayload(String payloadId, double meanSpeed, int numVehicles, LocalDateTime startTime,
+                                         LocalDateTime endTime){
         super.setPayloadId(payloadId);
-        this.avgTravelTime = avgTravelTime;
+        this.meanSpeed = meanSpeed;
         this.numVehicles = numVehicles;
         this.startTime = startTime;
         this.endTime = endTime;
     }
 
-    public double getAvgTravelTime() {
-        return avgTravelTime;
+    public double getMeanSpeed() {
+        return meanSpeed;
     }
 
-    public void setAvgTravelTime(double avgTravelTime) {
-        this.avgTravelTime = avgTravelTime;
+    public void setMeanSpeed(double meanSpeed) {
+        this.meanSpeed = meanSpeed;
     }
 
     public int getNumVehicles() {
