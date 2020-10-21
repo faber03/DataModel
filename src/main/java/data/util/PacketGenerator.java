@@ -7,6 +7,7 @@ import data.model.single.SingleVehicleTravelTimePayload;
 import data.model.aggregate.AggregateVehiclesTravelTimePayload;
 import data.model.total.TotalVehiclesTravelTimePayload;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -35,11 +36,14 @@ public class PacketGenerator {
         return new Gson().toJson(p);
     }
 
-    public static String aggTotalVehiclesTravelTimePayload(long linkId, double avgTravelTime, double sdTravelTime, int numVehicles,
-                                                        LocalDateTime startingDate, LocalDateTime finalDate) {
+    public static String aggregateVehiclesTravelTimePayload(long linkId, double avgTravelTime, double sdTravelTime,
+                                                            int numVehicles,
+                                                            Duration aggPeriod,
+                                                            LocalDateTime startingDate,
+                                                            LocalDateTime finalDate) {
         AggregateVehiclesTravelTimePayload payload = new AggregateVehiclesTravelTimePayload(
                 "AggVehiclesTravelTimePayload",
-                avgTravelTime, sdTravelTime, numVehicles, startingDate, finalDate);
+                avgTravelTime, sdTravelTime, numVehicles, aggPeriod, startingDate, finalDate);
         ArrayList<Payload> list= new ArrayList<>();
         list.add(payload);
         Packet p = new Packet(linkId, list);
