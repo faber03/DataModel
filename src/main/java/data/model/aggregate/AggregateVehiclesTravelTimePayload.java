@@ -3,22 +3,36 @@ package data.model.aggregate;
 import com.google.gson.Gson;
 import data.model.Payload;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class AggregateVehiclesTravelTimePayload extends Payload {
 	private double avgTravelTime;
 	private double sdTravelTime;
 	private  int numVehicles;
+	private Duration aggPeriod;
 	private LocalDateTime startTime, endTime;
 
-	public AggregateVehiclesTravelTimePayload(String payloadId, double avgTravelTime, double sdTravelTime, int numVehicles, LocalDateTime startTime,
+	public AggregateVehiclesTravelTimePayload(String payloadId, double avgTravelTime, double sdTravelTime,
+											  int numVehicles,
+											  Duration aggPeriod,
+											  LocalDateTime startTime,
 											  LocalDateTime endTime){
 		super.setPayloadId(payloadId);
 		this.avgTravelTime = avgTravelTime;
 		this.sdTravelTime = sdTravelTime;
 		this.numVehicles = numVehicles;
+		this.aggPeriod = aggPeriod;
 		this.startTime = startTime;
 		this.endTime = endTime;
+	}
+
+	public Duration getAggPeriod(){
+		return this.aggPeriod;
+	}
+
+	public void setAggPeriod(Duration aggPeriod){
+		this.aggPeriod = aggPeriod;
 	}
 
 	public double getAvgTravelTime() {
