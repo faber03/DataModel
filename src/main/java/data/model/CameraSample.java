@@ -4,12 +4,12 @@ import com.google.gson.Gson;
 
 import java.time.LocalDateTime;
 
-public class CameraPayload extends  Payload {
+public class CameraSample extends Sample {
     private Byte[] img;
     private LocalDateTime timestamp;
     private boolean atRoadEntrance;
 
-    public CameraPayload(String payloadId, Byte[] img, LocalDateTime timestamp, boolean atRoadEntrance){
+    public CameraSample(String payloadId, Byte[] img, LocalDateTime timestamp, boolean atRoadEntrance){
         super.setPayloadId(payloadId);
         this.img = img;
         this.timestamp = timestamp;

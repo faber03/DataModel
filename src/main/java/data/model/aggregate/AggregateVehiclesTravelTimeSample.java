@@ -1,23 +1,23 @@
 package data.model.aggregate;
 
 import com.google.gson.Gson;
-import data.model.Payload;
+import data.model.Sample;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class AggregateVehiclesTravelTimePayload extends Payload {
+public class AggregateVehiclesTravelTimeSample extends Sample {
 	private double avgTravelTime;
 	private double sdTravelTime;
 	private  int numVehicles;
 	private Duration aggPeriod;
 	private LocalDateTime startTime, endTime;
 
-	public AggregateVehiclesTravelTimePayload(String payloadId, double avgTravelTime, double sdTravelTime,
-											  int numVehicles,
-											  Duration aggPeriod,
-											  LocalDateTime startTime,
-											  LocalDateTime endTime){
+	public AggregateVehiclesTravelTimeSample(String payloadId, double avgTravelTime, double sdTravelTime,
+											 int numVehicles,
+											 Duration aggPeriod,
+											 LocalDateTime startTime,
+											 LocalDateTime endTime){
 		super.setPayloadId(payloadId);
 		this.avgTravelTime = avgTravelTime;
 		this.sdTravelTime = sdTravelTime;

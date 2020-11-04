@@ -1,17 +1,17 @@
 package data.model.single;
 
 import com.google.gson.Gson;
-import data.model.Payload;
+import data.model.Sample;
 
 import java.time.LocalDateTime;
 
 
-public class SingleVehicleTravelTimePayload extends Payload {
+public class SingleVehicleTravelTimeSample extends Sample {
     private double travelTime;
     private LocalDateTime timestamp;
 
-    public SingleVehicleTravelTimePayload(String payloadId, double travelTime,
-                                          LocalDateTime timestamp){
+    public SingleVehicleTravelTimeSample(String payloadId, double travelTime,
+                                         LocalDateTime timestamp){
         super.setPayloadId(payloadId);
         this.travelTime = travelTime;
         this.timestamp = timestamp;

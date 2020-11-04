@@ -1,17 +1,17 @@
 package data.model.single;
 
 import com.google.gson.Gson;
-import data.model.Payload;
+import data.model.Sample;
 
 import java.time.LocalDateTime;
 
 
-public class SingleVehicleMeanSpeedPayload extends Payload {
+public class SingleVehicleMeanSpeedSample extends Sample {
 
     private double meanSpeed;
     private LocalDateTime timestamp;
 
-    public SingleVehicleMeanSpeedPayload(String payloadId, double meanSpeed, LocalDateTime timestamp) {
+    public SingleVehicleMeanSpeedSample(String payloadId, double meanSpeed, LocalDateTime timestamp) {
         super.setPayloadId(payloadId);
         this.meanSpeed = meanSpeed;
         this.timestamp = timestamp;

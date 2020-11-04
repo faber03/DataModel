@@ -1,15 +1,15 @@
 package data.model.total;
 
 import com.google.gson.Gson;
-import data.model.Payload;
+import data.model.Sample;
 
 import java.time.LocalDateTime;
 
-public class VehiclesNumberPayload extends Payload {
+public class VehiclesNumberSample extends Sample {
     private int vehiclesNumber;
     private LocalDateTime startTime, endTime;
 
-    public VehiclesNumberPayload(String payloadId, int numVehicles, LocalDateTime startTime, LocalDateTime endTime){
+    public VehiclesNumberSample(String payloadId, int numVehicles, LocalDateTime startTime, LocalDateTime endTime){
         super.setPayloadId(payloadId);
         this.vehiclesNumber = numVehicles;
         this.startTime = startTime;

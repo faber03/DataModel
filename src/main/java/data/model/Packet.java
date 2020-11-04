@@ -3,12 +3,12 @@ package data.model;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializer;
-import data.model.single.SingleVehicleMeanSpeedPayload;
-import data.model.single.SingleVehicleTravelTimePayload;
-import data.model.aggregate.AggregateVehiclesTravelTimePayload;
-import data.model.total.TotalVehiclesMeanSpeedPayload;
-import data.model.total.TotalVehiclesTravelTimePayload;
-import data.model.total.VehiclesNumberPayload;
+import data.model.aggregate.AggregateVehiclesTravelTimeSample;
+import data.model.single.SingleVehicleMeanSpeedSample;
+import data.model.single.SingleVehicleTravelTimeSample;
+import data.model.total.TotalVehiclesMeanSpeedSample;
+import data.model.total.TotalVehiclesTravelTimeSample;
+import data.model.total.VehiclesNumberSample;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -18,48 +18,48 @@ import java.util.HashMap;
 public class Packet implements Serializable {
     private static final long serialVersionUID = 3930024432958038982L;
 
-    public static final HashMap<String, Class<?>> payloadsMap;
+    public static final HashMap<String, Class<?>> samplesMap;
     static {
-        payloadsMap = new HashMap<>();
-        payloadsMap.put("CameraPayload", CameraPayload.class);
-        payloadsMap.put("VehiclesNumberPayload", VehiclesNumberPayload.class);
-        payloadsMap.put("SingleVehicleMeanSpeedPayalod", SingleVehicleMeanSpeedPayload.class);
-        payloadsMap.put("SingleVehicleTravelTimePayload", SingleVehicleTravelTimePayload.class);
-        payloadsMap.put("TotalVehiclesMeanSpeedPayload", TotalVehiclesMeanSpeedPayload.class);
-        payloadsMap.put("TotalVehiclesTravelTimePayload", TotalVehiclesTravelTimePayload.class);
-        payloadsMap.put("AggregateVehiclesTravelTimePayload", AggregateVehiclesTravelTimePayload.class);
+        samplesMap = new HashMap<>();
+        samplesMap.put("CameraSample", CameraSample.class);
+        samplesMap.put("VehiclesNumberSample", VehiclesNumberSample.class);
+        samplesMap.put("SingleVehicleMeanSpeedPayalod", SingleVehicleMeanSpeedSample.class);
+        samplesMap.put("SingleVehicleTravelTimeSample", SingleVehicleTravelTimeSample.class);
+        samplesMap.put("TotalVehiclesMeanSpeedSample", TotalVehiclesMeanSpeedSample.class);
+        samplesMap.put("TotalVehiclesTravelTimeSample", TotalVehiclesTravelTimeSample.class);
+        samplesMap.put("AggregateVehiclesTravelTimeSample", AggregateVehiclesTravelTimeSample.class);
     }
 
     protected long linkId;
     protected long timestamp;
-    protected ArrayList<Payload> payloads;
+    protected ArrayList<Sample> samples;
     
     public Packet() {}
     
-    public Packet(long linkId, ArrayList<Payload> payloads){
+    public Packet(long linkId, ArrayList<Sample> samples){
         this.linkId = linkId;
         this.timestamp = Instant.now().toEpochMilli();
-        this.payloads = payloads;
+        this.samples = samples;
     }
 
-    public Packet(long linkId, Payload payload){
+    public Packet(long linkId, Sample sample){
         this.linkId = linkId;
         this.timestamp = Instant.now().toEpochMilli();
-        this.payloads = new ArrayList<>();
-        this.payloads.add(payload);
+        this.samples = new ArrayList<>();
+        this.samples.add(sample);
     }
 
-    public Packet(long linkId, ArrayList<Payload> payloads, long timestamp){
+    public Packet(long linkId, ArrayList<Sample> samples, long timestamp){
         this.linkId = linkId;
         this.timestamp = timestamp;
-        this.payloads = payloads;
+        this.samples = samples;
     }
 
-    public Packet(long linkId, Payload payload, long timestamp){
+    public Packet(long linkId, Sample sample, long timestamp){
         this.linkId = linkId;
         this.timestamp = timestamp;
-        this.payloads = new ArrayList<>();
-        this.payloads.add(payload);
+        this.samples = new ArrayList<>();
+        this.samples.add(sample);
     }
 
     public long getLinkId() {
@@ -78,12 +78,12 @@ public class Packet implements Serializable {
         this.timestamp = timestamp;
     }
 
-    public ArrayList<Payload> getPayloads() {
-        return payloads;
+    public ArrayList<Sample> getSamples() {
+        return samples;
     }
 
-    public void setPayloads(ArrayList<Payload> payloads) {
-        this.payloads = payloads;
+    public void setSamples(ArrayList<Sample> samples) {
+        this.samples = samples;
     }
 
     public static String toJson(Object o){

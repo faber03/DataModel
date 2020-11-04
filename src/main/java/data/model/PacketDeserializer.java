@@ -14,25 +14,25 @@ public class PacketDeserializer implements JsonDeserializer<Packet> {
         else{
             Packet packet = new Packet();
             JsonObject jo = jsonElement.getAsJsonObject();
-            JsonArray ja = jo.getAsJsonArray("payloads");
+            JsonArray ja = jo.getAsJsonArray("samples");
 
-            ArrayList<Payload> payloads = new ArrayList<>();
-            JsonElement payloadIdJson;
-            String payloadId;
+            ArrayList<Sample> samples = new ArrayList<>();
+            JsonElement sampleIdJson;
+            String sampleId;
             Class<?> c;
             for(JsonElement je: ja){
                 JsonObject jeo = je.getAsJsonObject();
-                payloadIdJson = jeo.get("payloadId");
-                if(payloadIdJson != null){
-                    payloadId = payloadIdJson.getAsString();
-                    if(Packet.payloadsMap.containsKey(payloadId)){
-                        c = (Packet.payloadsMap.get(payloadId));
-                        payloads.add((Payload) new Gson().fromJson(jeo, c));
+                sampleIdJson = jeo.get("sampleId");
+                if(sampleIdJson != null){
+                    sampleId = sampleIdJson.getAsString();
+                    if(Packet.samplesMap.containsKey(sampleId)){
+                        c = (Packet.samplesMap.get(sampleId));
+                        samples.add((Sample) new Gson().fromJson(jeo, c));
                     }
                 }
             }
 
-            packet.setPayloads(payloads);
+            packet.setSamples(samples);
 
             JsonElement temp;
             temp = jo.get("linkId");
