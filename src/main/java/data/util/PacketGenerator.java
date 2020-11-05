@@ -42,7 +42,7 @@ public class PacketGenerator {
                                                             LocalDateTime startingDate,
                                                             LocalDateTime finalDate) {
         AggregateVehiclesTravelTimeSample sample = new AggregateVehiclesTravelTimeSample(
-                "AggVehiclesTravelTimeSample",
+                "AggregateVehiclesTravelTimeSample",
                 avgTravelTime, sdTravelTime, numVehicles, aggPeriod, startingDate, finalDate);
         ArrayList<Sample> list= new ArrayList<>();
         list.add(sample);

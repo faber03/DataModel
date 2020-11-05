@@ -23,7 +23,7 @@ public class Packet implements Serializable {
         samplesMap = new HashMap<>();
         samplesMap.put("CameraSample", CameraSample.class);
         samplesMap.put("VehiclesNumberSample", VehiclesNumberSample.class);
-        samplesMap.put("SingleVehicleMeanSpeedPayalod", SingleVehicleMeanSpeedSample.class);
+        samplesMap.put("SingleVehicleMeanSpeedSample", SingleVehicleMeanSpeedSample.class);
         samplesMap.put("SingleVehicleTravelTimeSample", SingleVehicleTravelTimeSample.class);
         samplesMap.put("TotalVehiclesMeanSpeedSample", TotalVehiclesMeanSpeedSample.class);
         samplesMap.put("TotalVehiclesTravelTimeSample", TotalVehiclesTravelTimeSample.class);
